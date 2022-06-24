@@ -1,0 +1,8 @@
+{
+  "extends": "@gilbarbara/tsconfig",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}

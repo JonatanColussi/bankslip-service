@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should parse bankslip properly 1`] = `
+Convenio {
+  "amount": 116.5,
+  "barCode": "82610000001165011000000100008706344202206955",
+  "digitableLine": "826100000015165011000008010000870633442022069557",
+  "expirationDate": undefined,
+  "type": "CONVENIO",
+}
+`;
+
+exports[`should parse bankslip properly 2`] = `
+Convenio {
+  "amount": 548.35,
+  "barCode": "83610000005483500863349337367600910025841691",
+  "digitableLine": "836100000055483500863343933736760093100258416914",
+  "expirationDate": undefined,
+  "type": "CONVENIO",
+}
+`;
+
+exports[`should parse bankslip properly 3`] = `
+Convenio {
+  "amount": 74.99,
+  "barCode": "84650000000749900791000111985598792107037334",
+  "digitableLine": "846500000001749900791007011198559871921070373342",
+  "expirationDate": undefined,
+  "type": "CONVENIO",
+}
+`;
+
+exports[`should parse bankslip properly 4`] = `
+Convenio {
+  "amount": 40.42,
+  "barCode": "84890000000404201622018060519042958603411122",
+  "digitableLine": "848900000002404201622015806051904292586034111220",
+  "expirationDate": undefined,
+  "type": "CONVENIO",
+}
+`;
+
+exports[`should parse bankslip properly 5`] = `
+Convenio {
+  "amount": 743.84,
+  "barCode": "85800000007438403281926307201925230472960052",
+  "digitableLine": "858000000070438403281922630720192528304729600523",
+  "expirationDate": undefined,
+  "type": "CONVENIO",
+}
+`;
+
+exports[`should parse bankslip properly 6`] = `
+Convenio {
+  "amount": undefined,
+  "barCode": "81770000000010936599704113107970300143370831",
+  "digitableLine": "817700000000010936599702411310797039001433708318",
+  "expirationDate": undefined,
+  "type": "CONVENIO",
+}
+`;

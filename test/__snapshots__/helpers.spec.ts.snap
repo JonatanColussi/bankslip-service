@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return error response with any object 1`] = `
+Object {
+  "body": "{\\"message\\":\\"any_error_message\\"}",
+  "headers": Object {
+    "Content-Type": "Application/json",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`should return success response with any object 1`] = `
+Object {
+  "body": "{\\"foo\\":\\"bar\\"}",
+  "headers": Object {
+    "Content-Type": "Application/json",
+  },
+  "statusCode": 200,
+}
+`;

@@ -1,0 +1,49 @@
+{
+  "name": "bankslip-service",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Jonatan Colussi <jonatancolussi81@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JonatanColussi/bankslip-service"
+  },
+  "bugs": {
+    "url": "https://github.com/JonatanColussi/bankslip-service/issues"
+  },
+  "homepage": "https://github.com/JonatanColussi/bankslip-service",
+  "devDependencies": {
+    "@gilbarbara/eslint-config": "^0.2.4",
+    "@gilbarbara/prettier-config": "^0.1.0",
+    "@gilbarbara/tsconfig": "^0.1.1",
+    "@serverless/event-mocks": "^1.1.1",
+    "@types/aws-lambda": "^8.10.101",
+    "@types/jest": "^28.1.3",
+    "@types/node": "^18.0.0",
+    "aws-lambda": "^1.0.7",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "jest-watch-typeahead": "^1.1.0",
+    "repo-tools": "^0.2.2",
+    "serverless": "^3.19.0",
+    "serverless-domain-manager": "^6.0.3",
+    "serverless-plugin-typescript": "^2.1.2",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.ts src test",
+    "prepare": "husky install",
+    "sls:deploy:dev": "sls deploy --stage dev",
+    "sls:validate": "sls print",
+    "test:coverage": "npm test -- --bail --coverage",
+    "test:watch": "npm test -- --watchAll --verbose",
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run lint && npm run typecheck && npm run test:coverage"
+  },
+  "eslintConfig": {
+    "extends": "@gilbarbara/eslint-config"
+  },
+  "prettier": "@gilbarbara/prettier-config"
+}

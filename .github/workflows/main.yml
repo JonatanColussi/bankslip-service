@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - dev
+    tags:
+      - 'v*'
+  pull_request:
+    branches: ['*']
+
+  workflow_dispatch:
+
+jobs:
+  main:
+    name: Validate and Deploy
+    runs-on: ubuntu-latest
+
+    env:
+      CI: true
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    steps:
+      - name: Setup timezone
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: America/Sao_Paulo
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Cache Packages
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+        timeout-minutes: 1
+
+      - name: Install Packages
+        run: |
+          npm ci --ignore-scripts
+          npm rebuild && npm run prepare --if-present
+        timeout-minutes: 3
+
+      - name: Lint
+        run: npm run lint
+        timeout-minutes: 3
+
+      - name: Typescript check
+        run: npm run typecheck
+        timeout-minutes: 3
+
+      - name: Test with Coverage
+        run: npm run test:coverage
+        timeout-minutes: 3
+
+      - name: "Serverless Deploy dev"
+        if: contains('refs/heads/dev', github.ref)
+        uses: serverless/github-action@v3
+        with:
+          args: "deploy --stage dev"
+
+      - name: Serverless Deploy Prod
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: serverless/github-action@v3
+        with:
+          args: deploy --stage prod

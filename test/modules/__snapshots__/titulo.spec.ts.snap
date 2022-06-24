@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should parse bankslip properly 1`] = `
+Titulo {
+  "amount": 20857.42,
+  "barCode": "33691902900020857420000000000010040073132314",
+  "digitableLine": "33690000090000001004100731323143190290002085742",
+  "expirationDate": "2022-06-27",
+  "type": "TITULO",
+}
+`;
+
+exports[`should parse bankslip properly 2`] = `
+Titulo {
+  "amount": undefined,
+  "barCode": "03395000000000000009492836982000900954500102",
+  "digitableLine": "03399492813698200090709545001027500000000000000",
+  "expirationDate": undefined,
+  "type": "TITULO",
+}
+`;
+
+exports[`should parse bankslip properly 3`] = `
+Titulo {
+  "amount": 485.5,
+  "barCode": "00193902200000485500000002500386000068486317",
+  "digitableLine": "00190000090250038600400684863178390220000048550",
+  "expirationDate": "2022-06-20",
+  "type": "TITULO",
+}
+`;
+
+exports[`should parse bankslip properly 4`] = `
+Titulo {
+  "amount": 20,
+  "barCode": "21299758700000020000001121100012100447561740",
+  "digitableLine": "21290001192110001210904475617405975870000002000",
+  "expirationDate": "2018-07-16",
+  "type": "TITULO",
+}
+`;

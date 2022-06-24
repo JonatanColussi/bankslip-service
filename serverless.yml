@@ -1,0 +1,57 @@
+service: bankslip-service
+
+configValidationMode: error
+frameworkVersion: '3'
+
+plugins:
+  - serverless-domain-manager
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  stage: ${opt:stage,'dev'}
+  logs:
+    httpApi: true
+  httpApi:
+    cors: true
+  apiGateway:
+    shouldStartNameWithService: true
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'lambda:InvokeFunction'
+          Resource: '*'
+  environment:
+    STAGE: ${self:provider.stage}
+
+resources:
+  Resources:
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+
+custom:
+  domains:
+    dev: api-dev.colussi.xyz
+    prod: api.colussi.xyz
+  customDomain:
+    domainName: ${self:custom.domains.${self:provider.stage}}
+    basePath: boleto
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+
+functions:
+  viewBankslipInfo:
+    handler: src/handler.viewBankslipInfo
+    events:
+      - http:
+          path: /{digitableLine}
+          method: get
+
+package:
+  patterns:
+    - '!node_modules/.cache/**'

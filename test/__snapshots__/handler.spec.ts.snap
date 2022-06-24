@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should parse digitableLine properly 1`] = `
+Object {
+  "amount": 20,
+  "barCode": "21299758700000020000001121100012100447561740",
+  "expirationDate": "2018-07-16",
+}
+`;
+
+exports[`should parse digitableLine properly 2`] = `
+Object {
+  "amount": 116.5,
+  "barCode": "82610000001165011000000100008706344202206955",
+  "expirationDate": null,
+}
+`;
+
+exports[`should parse digitableLine properly 3`] = `
+Object {
+  "amount": 20857.42,
+  "barCode": "33691902900020857420000000000010040073132314",
+  "expirationDate": "2022-06-27",
+}
+`;
+
+exports[`should parse digitableLine properly 4`] = `
+Object {
+  "amount": null,
+  "barCode": "03395000000000000009492836982000900954500102",
+  "expirationDate": null,
+}
+`;
+
+exports[`should parse digitableLine properly 5`] = `
+Object {
+  "amount": 485.5,
+  "barCode": "00193902200000485500000002500386000068486317",
+  "expirationDate": "2022-06-20",
+}
+`;
+
+exports[`should parse digitableLine properly 6`] = `
+Object {
+  "amount": 548.35,
+  "barCode": "83610000005483500863349337367600910025841691",
+  "expirationDate": null,
+}
+`;
+
+exports[`should parse digitableLine properly 7`] = `
+Object {
+  "amount": 74.99,
+  "barCode": "84650000000749900791000111985598792107037334",
+  "expirationDate": null,
+}
+`;
+
+exports[`should parse digitableLine properly 8`] = `
+Object {
+  "amount": 40.42,
+  "barCode": "84890000000404201622018060519042958603411122",
+  "expirationDate": null,
+}
+`;
+
+exports[`should parse digitableLine properly 9`] = `
+Object {
+  "amount": 743.84,
+  "barCode": "85800000007438403281926307201925230472960052",
+  "expirationDate": null,
+}
+`;
